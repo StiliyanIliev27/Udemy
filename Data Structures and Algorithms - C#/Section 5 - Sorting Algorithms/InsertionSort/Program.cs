@@ -6,16 +6,16 @@
         {
             for(int i = 1; i < arr.Length; i++)
             {
-                int cvalue = arr[i];
+                int temp = arr[i];
                 int position = i;
 
-                while(position > 0 && arr[position - 1] > cvalue)
+                while(position > 0 && arr[position - 1] > temp)
                 {
                     arr[position] = arr[position - 1];
                     position--;
                 }
 
-                arr[position] = cvalue;
+                arr[position] = temp;
             }
 
             return arr;
