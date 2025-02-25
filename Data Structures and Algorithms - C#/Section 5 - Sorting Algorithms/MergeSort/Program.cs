@@ -16,7 +16,7 @@
 
         public static void Merge(int[] arr, int left, int mid, int right)
         {
-            int[] b = new int[right + 1];
+            int[] mergedArr = new int[right + 1];
             int i = left;
             int j = mid + 1;
             int k = left;
@@ -25,32 +25,32 @@
             {
                 if (arr[i] < arr[j])
                 {
-                    b[k] = arr[i];
+                    mergedArr[k] = arr[i];
                     i++;            
                 }
                 else
                 {
-                    b[k] = arr[j];
+                    mergedArr[k] = arr[j];
                     j++;
                 }
                 k++;
             }
             while(i <= mid)
             {
-                b[k] = arr[i];
+                mergedArr[k] = arr[i];
                 i++;
                 k++;
             }
             while(j <= right)
             {
-                b[k] = arr[j];
+                mergedArr[k] = arr[j];
                 j++;
                 k++;
             }
 
             for(int x = left; x < right; x++)
             {
-                arr[x] = b[x];
+                arr[x] = mergedArr[x];
             }
         }
         public static void PrintArray(int[] arr)
