@@ -6,12 +6,11 @@
         {
             LinkedList<int> list = new LinkedList<int>();
 
-            list.Add(1);
-            list.Add(2);
-            list.Display();
-
-            list.Add(3);
-            list.Add(4);
+            list.AddLast(3);
+            list.AddLast(4);
+            list.AddLast(5);
+            list.AddLast(6);
+            list.AddAny(2, 3);
             list.Display();
         }
     }
