@@ -15,6 +15,10 @@
             doublyLinkedList.AddFirst(0);
             doublyLinkedList.AddAny(40, 4);
 
+            doublyLinkedList.RemoveFirst();
+            doublyLinkedList.RemoveLast();
+            doublyLinkedList.RemoveAny(3);
+
             doublyLinkedList.Display();
         }
     }
