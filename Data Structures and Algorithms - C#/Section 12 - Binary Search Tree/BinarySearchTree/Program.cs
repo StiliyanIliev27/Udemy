@@ -19,7 +19,13 @@ namespace BinarySearchTree
             binarySearchTree.Insert(binarySearchTree.Root!, 90);
 
             //Recursive insertion
-           // binarySearchTree.InsertRecursive(binarySearchTree.Root!, 70);
+            binarySearchTree.InsertRecursive(binarySearchTree.Root!, 70);
+
+
+            //Count of the elements in the tree
+            int count = binarySearchTree.Count(binarySearchTree.Root!);
+            Console.WriteLine($"Count of the elements: {count}");
+
 
             //Displaying elements by different traversals
             Console.Write("In order: ");

@@ -230,6 +230,17 @@
             return true;
         }
 
+        public int Count(Node<T> temproot)
+        {
+            if(temproot != null)
+            {
+                int x = Count(temproot.Left);
+                int y = Count(temproot.Right);
+                return x + y + 1;
+            }
+            return 0;
+        }
+
         private static bool AreInstancesEqual<T>(T first, T second)
         {
             return EqualityComparer<T>.Default.Equals(first, second);
