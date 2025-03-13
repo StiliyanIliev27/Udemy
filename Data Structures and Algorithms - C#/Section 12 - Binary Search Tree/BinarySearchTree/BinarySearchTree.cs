@@ -165,6 +165,71 @@
             }
         }
 
+        public bool Delete(T element)
+        {
+            Node<T> temproot = Root!;
+            Node<T> parent = null!;
+
+            while (temproot != null && !AreInstancesEqual(temproot.Element, element))
+            {
+                parent = temproot;
+                if (IsFirstGreaterThanSecond(temproot.Element, element))
+                {
+                    temproot = temproot.Left;
+                }
+                else
+                {
+                    temproot = temproot.Right;
+                }
+            }
+
+            if (temproot == null)
+            {
+                return false;
+            }
+
+            if (temproot.Left != null && temproot.Right != null)
+            {
+                Node<T> successor = temproot.Left;
+                Node<T> successorParent = temproot;
+
+                while (successor.Right != null)
+                {
+                    successorParent = successor;
+                    successor = successor.Right;
+                }
+                temproot.Element = successor.Element;
+                temproot = successor;
+                parent = successorParent;
+            }
+
+            Node<T> c = null!;
+            if (temproot.Left != null)
+            {
+                c = temproot.Left;
+            }
+            else
+            {
+                c = temproot.Right!;
+            }
+            if (temproot == Root)
+            {
+                Root = null;
+            }
+            else
+            {
+                if (temproot == parent.Left)
+                {
+                    parent.Left = c;
+                }
+                else
+                {
+                    parent.Right = c;
+                }
+            }
+            return true;
+        }
+
         private static bool AreInstancesEqual<T>(T first, T second)
         {
             return EqualityComparer<T>.Default.Equals(first, second);

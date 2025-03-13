@@ -1,4 +1,6 @@
-﻿namespace BinarySearchTree
+﻿using System.Diagnostics;
+
+namespace BinarySearchTree
 {
     public class Program
     {
@@ -45,6 +47,22 @@
 
             searchResult = binarySearchTree.RecursiveSearch(binarySearchTree.Root!, 61);
             Console.Write($"Search for 60 (recursive): {searchResult}");
+
+            Console.WriteLine();
+
+
+            //Deleting an element from the tree
+            Console.WriteLine("Deleting 50...");
+           
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Thread.Sleep(1000);
+            stopwatch.Stop();
+
+            binarySearchTree.Delete(50);
+            Console.Write("Items: ");
+            binarySearchTree.InOrder(binarySearchTree.Root!);
+            Console.WriteLine();
         }
     }
 }
