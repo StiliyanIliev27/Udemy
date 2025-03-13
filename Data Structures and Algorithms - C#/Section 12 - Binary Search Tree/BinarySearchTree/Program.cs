@@ -27,6 +27,11 @@ namespace BinarySearchTree
             Console.WriteLine($"Count of the elements: {count}");
 
 
+            //Height of the tree
+            int height = binarySearchTree.Height(binarySearchTree.Root!) - 1;// The method returns the number of edges, so we need to subtract 1
+            Console.WriteLine($"Height of the tree is: {height}");
+
+
             //Displaying elements by different traversals
             Console.Write("In order: ");
             binarySearchTree.InOrder(binarySearchTree.Root!);
