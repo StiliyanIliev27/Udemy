@@ -89,6 +89,82 @@
             }
         }
 
+        public void PostOrder(Node<T> temproot)
+        {
+            if(temproot != null)
+            {
+                PostOrder(temproot.Left);
+                PostOrder(temproot.Right);
+                Console.Write(temproot.Element + " ");
+            }
+        }
+
+        public void LevelOrder()
+        {
+            Queue<Node<T>> queue = new Queue<Node<T>>();
+            
+            Node<T> temproot = Root!;
+            Console.Write(temproot.Element + " ");
+            queue.Enqueue(temproot);
+
+            while (queue.Any())
+            {
+                temproot = queue.Dequeue();
+                if (temproot.Left != null)
+                {
+                    Console.Write(temproot.Left.Element + " ");
+                    queue.Enqueue(temproot.Left);
+                }
+                if (temproot.Right != null)
+                {
+                    Console.Write(temproot.Right.Element + " ");
+                    queue.Enqueue(temproot.Right);
+                }
+            }
+        }
+
+        public bool IterativeSearch(T key)
+        {
+            Node<T> temproot = Root!;
+            while (temproot != null)
+            {
+                if(AreInstancesEqual(temproot.Element, key))
+                {
+                    return true;
+                }
+                else if(IsFirstGreaterThanSecond(key, temproot.Element))
+                {
+                    temproot = temproot.Right;
+                }
+                else
+                {
+                    temproot = temproot.Left;
+                }
+            }
+            return false;
+        }
+
+        public bool RecursiveSearch(Node<T> temproot, T key)
+        {
+            if (temproot == null)
+            {
+                return false;
+            }
+
+            if (AreInstancesEqual(temproot.Element, key))
+            {
+                return true;
+            }
+            else if (IsFirstGreaterThanSecond(key, temproot.Element))
+            {
+                return RecursiveSearch(temproot.Right, key);
+            }
+            else
+            {
+                return RecursiveSearch(temproot.Left, key);
+            }
+        }
+
         private static bool AreInstancesEqual<T>(T first, T second)
         {
             return EqualityComparer<T>.Default.Equals(first, second);

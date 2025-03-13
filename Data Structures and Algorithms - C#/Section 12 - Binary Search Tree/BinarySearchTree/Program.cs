@@ -17,12 +17,34 @@
             binarySearchTree.Insert(binarySearchTree.Root!, 90);
 
             //Recursive insertion
-            binarySearchTree.InsertRecursive(binarySearchTree.Root!, 70);
+           // binarySearchTree.InsertRecursive(binarySearchTree.Root!, 70);
 
             //Displaying elements by different traversals
-            Console.Write("Elements: ");
-            //binarySearchTree.InOrder(binarySearchTree.Root!);
+            Console.Write("In order: ");
+            binarySearchTree.InOrder(binarySearchTree.Root!);
+            Console.WriteLine();
+
+            Console.Write("Pre order: ");
             binarySearchTree.PreOrder(binarySearchTree.Root!);
+            Console.WriteLine();
+
+            Console.Write("Post order: ");
+            binarySearchTree.PostOrder(binarySearchTree.Root!);
+            Console.WriteLine();
+
+            Console.Write("Level order: ");
+            binarySearchTree.LevelOrder();
+            Console.WriteLine();
+
+
+            //Searching for an element with iterative and recursive methods
+            bool searchResult = binarySearchTree.IterativeSearch(60);
+            Console.Write($"Search for 60 (iterative): {searchResult}");
+
+            Console.WriteLine();
+
+            searchResult = binarySearchTree.RecursiveSearch(binarySearchTree.Root!, 61);
+            Console.Write($"Search for 60 (recursive): {searchResult}");
         }
     }
 }
