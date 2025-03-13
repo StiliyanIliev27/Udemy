@@ -79,6 +79,16 @@
             }
         }
 
+        public void PreOrder(Node<T> temproot)
+        {
+            if(temproot != null)
+            {
+                Console.Write(temproot.Element + " ");
+                PreOrder(temproot.Left);
+                PreOrder(temproot.Right);
+            }
+        }
+
         private static bool AreInstancesEqual<T>(T first, T second)
         {
             return EqualityComparer<T>.Default.Equals(first, second);
